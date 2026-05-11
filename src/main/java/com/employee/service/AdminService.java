@@ -1,9 +1,12 @@
 package com.employee.service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.employee.dao.AdminDAO;
 import com.employee.model.Employee;
 
-public class Admin {
+public class AdminService {
 	
 	AdminDAO dao = new AdminDAO();
 
@@ -19,6 +22,12 @@ public class Admin {
 		}
 		
 		return dao.addDetails(employee);
+	}
+	
+	public List<Employee> readDeatils() {
+		List<Employee> list = new ArrayList<Employee>();
+		
+		return dao.readDetaisl(list);
 	}
 	
 }

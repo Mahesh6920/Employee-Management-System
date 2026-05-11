@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
+<%@ page import="java.util.List" %>
+<%@ page import="com.employee.model.Employee" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,16 +19,17 @@
     }
 
     body{
-        height: 100vh;
+        min-height: 100vh;
         display: flex;
         justify-content: center;
         align-items: center;
         background: linear-gradient(to right, #4facfe, #00f2fe);
         font-family: Arial, sans-serif;
+        padding: 20px;
     }
 
     .container{
-        width: 400px;
+        width: 700px;
         background-color: white;
         padding: 35px;
         border-radius: 15px;
@@ -94,6 +99,27 @@
         text-decoration: underline;
     }
 
+    table{
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 25px;
+    }
+
+    table th{
+        background-color: #4facfe;
+        color: white;
+        padding: 12px;
+    }
+
+    table td{
+        padding: 10px;
+        text-align: center;
+    }
+
+    table tr:nth-child(even){
+        background-color: #f2f2f2;
+    }
+
 </style>
 
 </head>
@@ -125,6 +151,47 @@
         <a href="updateEmployee.jsp">Update Employee</a>
         <a href="deleteEmployee.jsp">Delete Employee</a>
     </div>
+
+    <%
+    List<Employee> list =
+    (List<Employee>) request.getAttribute("employees");
+    %>
+
+    <%
+    if(list != null && !list.isEmpty()){
+    %>
+
+    <h2>Employee List</h2>
+
+    <table border="1">
+
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Salary</th>
+        </tr>
+
+        <%
+        for(Employee e : list){
+        %>
+
+        <tr>
+            <td><%= e.getId() %></td>
+            <td><%= e.getName() %></td>
+            <td><%= e.getAge() %></td>
+            <td><%= e.getSalary() %></td>
+        </tr>
+
+        <%
+        }
+        %>
+
+    </table>
+
+    <%
+    }
+    %>
 
 </div>
 
