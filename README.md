@@ -32,3 +32,25 @@ WebContent/
  ├── index.jsp
  └── WEB-INF/
 ```
+
+### Features
+
+- Add new employee records
+- View all employee records dynamically
+- Store employee details in MySQL database
+- Form handling using JSP and Servlets
+- JDBC-based database integration
+- Separate Servlets for inserting and viewing employee data
+- Request forwarding and redirect handling
+- Dynamic employee table rendering using JSP
+- Clean separation of business logic and database operations
+
+### Recent Updates
+
+- Implemented employee list display below the form
+- Added database-driven table rendering using JSP
+- Implemented separate Add and View servlets
+- Improved request flow using `sendRedirect()` and `forward()`
+- Added dynamic fetching of employee records from MySQL
+- Improved frontend UI using HTML and CSS
+- Implemented MVC-based request handling
